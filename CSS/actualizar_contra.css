@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'Amaranth';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Amaranth Regular'), local('Amaranth-Regular'), url(../fonts/KtkuALODe433f0j1zMnFHdA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Amaranth', sans-serif;
+}
+/*---------------------------- CARTEL VITRUM ---------------------------*/
+.neon{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+    padding: 0px 20px;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 0 0 20px #0428c6;
+}
+.neon:after{
+    content: attr(data-text);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 0 20px;
+    z-index: -1;
+    color: #0428c6;
+    filter: blur(15px);
+}
+.neon:before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #00A4FC;
+    z-index: -2;
+    opacity: .5;
+    filter: blur(40px);
+}
+/*------------------------------ CUADRO ------------------------------------*/
+.cuadro{
+	font-family: 'Quicksand', sans-serif;
+    width: 40%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px 10px 30px;
+    border-radius: 15px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+.cuadro p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.cuadro input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.cuadro input[type="password"]
+{
+    width: 90%;
+    border: none;
+    margin: 10px 5%;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+
+}
+.cuadro input[type="text"]
+{
+    width: 90%;
+    border: none;
+    margin: 10px 5%;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.cuadro input[type="submit"]
+{
+    border: none;
+    outline: none;
+    width: 30%;
+    margin: 35px 35%;
+    height: 40px;
+    background: #1c8adb;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 40px;
+}
+.cuadro input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #23B5EA;
+    color: #000;
+}
+
+/*---------------------------------------- ANIMACION FONDO ------------------------------------------*/
+section{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	animation: bgColor 20s linear infinite
+}
+.bgCuadro{
+	width: 100%;
+	height: 100%;
+}
+.bgCuadro span{
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	background: #fff;
+}
+.bgCuadro span:nth-child(1){
+	top: 50%;
+	left: 20%;
+	animation: animacion 10s linear infinite;
+}
+.bgCuadro span:nth-child(3n+1){
+	background: transparent;
+	border: 5px solid #fff;
+
+}
+.bgCuadro span:nth-child(2){
+	top: 80%;
+	left: 40%;
+	animation: animacion 12s linear infinite;
+}
+.bgCuadro span:nth-child(3){
+	top: 10%;
+	left: 65%;
+	animation: animacion 15s linear infinite;
+}
+.bgCuadro span:nth-child(4){
+	top: 50%;
+	left: 70%;
+	animation: animacion 6s linear infinite;
+}
+.bgCuadro span:nth-child(5){
+	top: 10%;
+	left: 30%;
+	animation: animacion 9s linear infinite;
+}
+.bgCuadro span:nth-child(6){
+	top: 90%;
+	left: 95%;
+	animation: animacion 8s linear infinite;
+}
+.bgCuadro span:nth-child(7){
+	top: 80%;
+	left: 5%;
+	animation: animacion 5s linear infinite;
+}
+.bgCuadro span:nth-child(8){
+	top: 35%;
+	left: 50%;
+	animation: animacion 14s linear infinite;
+}
+.bgCuadro span:nth-child(9){
+	top: 5%;
+	left: 5%;
+	animation: animacion 11s linear infinite;
+}
+.bgCuadro span:nth-child(10){
+	top: 25%;
+	left: 90%;
+	animation: animacion 10s linear infinite;
+}
+@keyframes animacion{
+	0%{
+		transform: scale(0) translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(1) translateY(-100px) rotate(360deg);
+		opacity: 0;
+	}
+}
+@keyframes bgColor{
+	0%{
+		background: #001AB2;
+	}
+	25%{
+		background: #00558E;
+	}
+	50%{
+		background: #00A58F;
+	}
+	75%{
+		background: #00A1C9;
+	}
+	90%{
+		background: #0058CC;
+	}
+	100%{
+		background: #001AB2;
+	}
+}

@@ -1,0 +1,22 @@
+PASOS PARA INICIAR LOS SERVICIOS DEL PROGRAMA
+1- Leer Archivo Instalar XAMPP.pdf contenido en la ruta: C:\xampp\htdocs\proyecto_vitrum de tus carpetas
+	1.1- Ante cualquier problema con el servidor acceder a: https://www.youtube.com/watch?v=2y9_Gx4nsfA
+	
+	Una vez instalado el XAMPP 
+
+2- Para restaurar la base de datos acceder a : http://localhost/proyecto_vitrum/PHP/base_de_datos.php 
+	1.2- Seleccionar la base de datos y restaurarla 
+
+2- Acceder a : http://localhost/proyecto_vitrum/PHP/login.php para iniciar sesión 
+	Nombre de usuario: admin
+	Contraseña: Contra123
+			Otros Usuarios
+			Usuario=geoba356
+			Contraseña=Lolcito05
+
+3-	Iniciar sesión desde administrador ingresando la contraseña proporcionada anteriormente 
+4-	La barra superior barra de navegación sobre todo el sistema  
+	(En la cual se encuentra un botón de ayuda la cual explica la funcionalidad del sistema, asi como que hacer en caso de errores)
+
+
+------------------------------direccionar al botón de ayuda------------------------

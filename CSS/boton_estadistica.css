@@ -1,0 +1,13 @@
+body
+{
+	margin-top: 10%;
+} 
+a
+{
+	color: #fff;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	background: #1c8adb;
+	padding: 5px 10px; 
+}

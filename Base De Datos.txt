@@ -1,0 +1,222 @@
+/* 1.CREAR BASE DE DATOS */
+CREATE DATABASE vitrumhn
+
+/* 2.USAR LA BASE DE DATOS */
+USE vitrumhn
+
+/* 3.CAMBIARLE EL COTEJAMINENTO */
+ALTER DATABASE `vitrumhn` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE `productos`
+COLLATE = utf8_general_ci
+
+
+/* 4.CREAR TABLAS EN LA BASE DE DATOS */
+CREATE TABLE usuarios
+(
+	id_usuario INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nombre_usuario VARCHAR(10) NOT NULL,
+    contras VARCHAR(80) NOT NULL,
+    correo_electronico VARCHAR(35) NOT NULL,
+    dir_imagen VARCHAR(200),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE tipo_usuario
+(
+	id_tipo_usuario INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    descripcion_tipo_usuario VARCHAR(20)NOT NULL
+);
+
+CREATE TABLE estado
+(
+	id_estado INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    descripcion_estado VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE empleados 
+(
+	id_empleado INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    primer_nombre VARCHAR(20) NOT NULL,
+    segundo_nombre VARCHAR(20) NOT NULL,
+    primer_apellido VARCHAR(20) NOT NULL,
+    segundo_apellido VARCHAR(20) NOT NULL,
+    correo_elec VARCHAR(35) NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    numero_identidad VARCHAR(15) NOT NULL,
+    direccion VARCHAR(40) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE permisos
+(
+	id_permiso INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    tipo_permiso VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE productos
+(
+	codigo_productos VARCHAR(5) PRIMARY KEY NOT NULL,
+    nombre_producto VARCHAR(40),
+    imagen_producto VARCHAR(100),
+    precio_producto FLOAT(8),
+    formato_img_producto VARCHAR(5),
+    descripcion_producto VARCHAR (200),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE presupuestos
+(
+	cod_presupuesto VARCHAR(5) PRIMARY KEY NOT NULL,
+    precio_uni VARCHAR(10),
+    presupuesto_externo VARCHAR(10),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE pedidos
+(
+	codigo_pedido VARCHAR(5) PRIMARY KEY NOT NULL,
+    direccion_instalacion VARCHAR(100) NOT NULL,
+    cantidad_pedido INT NOT NULL,
+    total FLOAT NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE proveedores(
+	id_proveedor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nombre_proveedor VARCHAR(50) NOT NULL,
+    descripcion_proveedor VARCHAR(100) NOT NULL,
+    telefono_proveedor VARCHAR(15) NOT NULL,
+    correo_electronico VARCHAR(50) NOT NULL,
+    direccion_proveedor VARCHAR(70) NOT NULL,
+     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE clientes(
+	id_cliente INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nombre_cliente VARCHAR(50)NOT NULL,
+    apellido_cliente VARCHAR(50)NOT NULL,
+    telefono_cliente VARCHAR(15),
+    direccion_instalacion VARCHAR(50),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE materiales
+(
+	codigo_material VARCHAR(5) PRIMARY KEY NOT NULL,
+    descripcion_material VARCHAR(30) NOT NULL,
+    tipo_material VARCHAR(20) NOT NULL,
+    precio_blanco_negro FLOAT,
+    precio_madera FLOAT,
+    precio_estandar FLOAT,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE log 
+(
+	id_log INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    descripcion_cambio VARCHAR(50) NOT NULL,
+    tabla_cambio VARCHAR(30) NOT NULL,
+    campo_cambio VARCHAR(30) NOT NULL,
+    cambio_realizado VARCHAR(100) NOT NULL,
+    dato_anterior VARCHAR(100) NOT NULL,
+    fecha_cambio TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+ON UPDATE CURRENT_TIMESTAMP
+	
+);
+
+CREATE TABLE viabilidad
+(
+	id_viabilidad INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    veredicto_viabilidad VARCHAR (20),
+    descripcion_viabilidad VARCHAR(50),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+	ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE datos_empresa
+(
+	nombre_empresa VARCHAR(40) NOT NULL,
+    informacion_empresa VARCHAR(200)NOT NULL,
+    mision VARCHAR(200)NOT NULL,
+    vision VARCHAR(200)NOT NULL,
+    telefono1 VARCHAR(15)NOT NULL,
+    telefono2 VARCHAR(15)NOT NULL,
+    direccion VARCHAR(50) NOT NULL,
+    correo_electronico VARCHAR(35),
+    logo VARCHAR(50),
+    logo2 VARCHAR(50),
+    fondo VARCHAR(50),
+    fondo2 VARCHAR(50)
+);
+/* 5.CREAR CAMPOS */
+
+	/*TABLA PEDIDO*/
+	ALTER TABLE pedidos ADD codigo_producto VARCHAR(5);
+	ALTER TABLE pedidos ADD id_empleado INT;
+
+	/*TABLA LOG*/
+	ALTER TABLE log ADD id_empleado INT;
+
+	/*TABLA VIABILIDAD*/
+	ALTER TABLE viabilidad ADD id_empleado INT;
+	ALTER TABLE viabilidad ADD codigo_pedido VARCHAR(5);
+
+	/*TABLA USUARIO*/
+	ALTER TABLE usuarios ADD id_tipo_usuario INT;
+	ALTER TABLE usuarios ADD id_estado INT;
+	
+	/*TABLA EMPLEADOS*/
+	ALTER TABLE empleados ADD id_estado INT;
+
+	/*TABLA PRESUPUESTO*/
+	ALTER TABLE presupuestos ADD id_empleado INT;
+	ALTER TABLE presupuestos ADD codigo_producto VARCHAR(5);
+
+	/*TABLA CLIENTE*/
+	ALTER TABLE clientes ADD id_empleado_registro INT;
+    ALTER TABLE clientes ADD codigo_pedido VARCHAR(5);
+
+	/*TABLA MATERIALES*/
+	ALTER TABLE materiales ADD codigo_producto VARCHAR(5);
+
+/* 6.CREAR CONEXIONES */
+
+	/*TABLA PEDIDO*/
+	ALTER TABLE pedidos ADD CONSTRAINT fk_codigo_producto FOREIGN KEY (codigo_producto) REFERENCES productos(codigo_productos);
+    ALTER TABLE pedidos ADD CONSTRAINT fk_id_empleado FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado);
+
+	/*TABLA LOG*/
+    ALTER TABLE log ADD FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado);
+    
+    /*TABLA VIABILIDAD*/
+    ALTER TABLE viabilidad ADD FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado);
+    ALTER TABLE viabilidad ADD CONSTRAINT fk_codigo_pedido FOREIGN KEY (codigo_pedido) REFERENCES pedidos(codigo_pedido);
+    
+    /*TABLA USUARIO*/
+    ALTER TABLE usuarios ADD CONSTRAINT fk_tipo_usuario FOREIGN KEY (id_tipo_usuario) REFERENCES tipo_usuario(id_tipo_usuario);
+    ALTER TABLE usuarios ADD CONSTRAINT fk_id_estado FOREIGN KEY (id_estado) REFERENCES estado(id_estado);
+
+
+    /*TABLA EMPLEADOS*/
+    ALTER TABLE  empleados ADD FOREIGN KEY (id_estado) REFERENCES estado(id_estado);
+    
+    /*TABLA PRESUPUESTO*/
+    ALTER TABLE presupuestos ADD FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado);
+    ALTER TABLE presupuestos ADD FOREIGN KEY (codigo_producto) REFERENCES productos(codigo_productos);
+    
+    /*TABLA CLIENTE*/
+    ALTER TABLE clientes ADD FOREIGN KEY (id_empleado_registro) REFERENCES empleados(id_empleado);
+    ALTER TABLE clientes ADD FOREIGN KEY (codigo_pedido) REFERENCES pedidos(codigo_pedido);
+
+	/*TABLA MATERIALES*/
+    ALTER TABLE materiales ADD FOREIGN KEY (codigo_producto) REFERENCES productos(codigo_productos);
+	  

@@ -1,0 +1,38 @@
+.pagina
+{
+	width: 60%;
+	height: 600px;
+	margin: 25px 20%;
+	border-radius: 0px 0px 0px 0px;
+	-moz-border-radius: 0px 0px 0px 0px;
+	-webkit-border-radius: 0px 0px 0px 0px;
+	border: 2px solid #000000;
+	padding: 25px 35px;
+}
+.pagina h1
+{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.pagina h2
+{
+	margin-bottom: 35px;
+	margin-top: 25px;
+	margin-left: 10px;
+}
+.pagina p
+{
+	width: 70%;
+	margin-left: 15%;
+	text-align: justify;
+}
+a
+{
+	color: #fff;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	background: #1c8adb;
+	padding: 5px 10px; 
+}

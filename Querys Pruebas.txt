@@ -1,0 +1,160 @@
+/*TIPO USUARIO*/
+INSERT INTO `tipo_usuario`(`descripcion_tipo_usuario`) VALUES 
+('Programador'),
+('Administrador'),
+('Gerente'),
+('Empleados');
+
+/*ESTADO*/
+INSERT INTO `estado`(`descripcion_estado`) VALUES 
+('Actualizar Contraseña'), 
+('Usuario Activo'), 
+('Usuario Inactivo');
+
+/*USUARIOS*/
+INSERT INTO `usuarios`(`nombre_usuario`, `contras`, `correo_electronico`, `id_tipo_usuario`, `id_estado`, `dir_imagen`) VALUES 
+('lavas178', 'Ump0K2dpQkMwbFBINlQzRXNMZ2JIdz09', 'alevasquez841@gmail.com', '1', '1','../imagenes/fotos_perfil/perfil.png'),
+('maalb829', 'aENhMEFoNmdONmJIVUJ6ZU1tMDVSQT09', 'melxander27@hotmail.es', '1', '1', '../imagenes/fotos_perfil/perfil_marvin.jpg'),
+('kfrod613', 'T21xd0xudGNyR2NTWHNPQXhQaXdOQT09', 'rodriguezkevin973@gmail.com', '1', '1', '../imagenes/fotos_perfil/perfil_kevin.jpg'),
+('geoba356', 'ME1HL3QyU21KNHFGb3lJbXR3R1pkdz09', 'geobjaja@hotmail.com','1', '1','../imagenes/fotos_perfil/perfil_lechu.png');
+
+/*EMPLEADOS*/
+INSERT INTO `empleados`(`primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `correo_elec`, `telefono`, `numero_identidad`, `direccion`, `id_estado`) VALUES 
+('Lester', 'Alejandro','Vasquez','Colindres','alevasquez841@gmail.com','32867346','0604199700178','Col. Brisas Del Valle','1'),
+('Melvin', 'Alexander', 'Alberto', 'Romero', 'melxander27@hotmail.es', '88667725', '0801199206829', 'Col.Torocagua', '1'),
+('Kevin', 'Francisco', 'Rodriguez', 'Maradiaga', 'rodriguezkevin973@gmail.com', '97803860', '0801199603613', 'Col. Las Uvas','1'),
+('Gabriel', 'Eduardo', 'Obando', 'Barahona', 'geobjaja@hotmail.com', '96333560', '0801199902356', 'Col.Loma Linda','1');
+
+/*PRODUCTOS*/
+INSERT INTO `productos`(`codigo_productos`, `nombre_producto`, `imagen_producto`, `formato_img_producto`,`precio_producto`, `descripcion_producto`) VALUES 
+('VCP01', 'Ventana Corrediza PVC Europea', '../imagenes/direccion_productos/ventana_corrediza_pvc_auropea.jpg', 'jpg','3956.58', 'Ventana corrediza color de tipo europeo color madera'),
+('VCB02', 'Ventana Corrediza PVC Blanco/Negro', '../imagenes/direccion_productos/ventana_corrediza_pvc_blanco_negro.jpg', 'jpg','2476.81', 'Ventana corrediza color de color blanco y negro'),
+('VPB01', 'Ventana Aluminio Pesada Blanco/Negro', '../imagenes/direccion_productos/ventana_aluminio_pesada_blanco_negro.jpg', 'jpg','3146.86', 'Ventana de aluminio de tipo pesada de color blanco o negro'),
+('PAP01', 'Puerta Aluminio Pesada Blanco O Negro', '../imagenes/direccion_productos/puerta_aluminio_pesada_blanco_negro.jpg', 'jpg', '3402.89', 'Puerta de aluminio de tipo pesada de color blanco o negro'),
+('VPM02', 'Ventana Aluminio Pesada Madera', '../imagenes/direccion_productos/ventana_aluminio_pesada_madera.jpg', 'jpg','3269.87', 'Ventana de aluminio de tipo pesada de color madera.'),
+('VPN03', 'Ventana Aluminio Pesada Natural', '../imagenes/direccion_productos/ventana_aluminio_pesada_natural.jpg', 'jpg','3110.40', 'Ventana de aluminio de tipo pesada de color madera.'),
+('VAB01', 'Ventana Aluminio Económico Blanco/Negro', '../imagenes/direccion_productos/ventana_aluminio_economica_blanco_negro.jpg', 'jpg','1142.75', 'Ventana de aluminio de económico color blanco o negro'),
+('VAN02', 'Ventana Aluminio Económico Natural', '../imagenes/direccion_productos/ventana_aluminio_economica_natural.jpg', 'jpg','1098.77', 'Ventana de aluminio de económico color natural'),
+('VAM03', 'Ventana Aluminio Económico Madera', '../imagenes/direccion_productos/ventana_aluminio_economica_madera.jpg', 'jpg','1269.93', 'Ventana de aluminio de económico color madera');
+
+
+/*PEDIDOS*/
+INSERT INTO `pedidos`(`codigo_pedido`, `direccion_instalacion`, `cantidad_pedido`, `total`,`codigo_producto`, `id_empleado`) VALUES 
+('5GD34', 'Col.La Esperanza', '4', '2345','VPN03','1'),
+('8QW5H', 'Col.Carrizal', '2', '2325', 'VAM03','2'),
+('74FT6', 'Col.Los Almendros', '23243','1', 'VAN02', '3'),
+('3F23F', 'Col.Brisas', '2', '23243','VCP01','2');
+
+/*CLIENTES*/
+INSERT INTO `clientes`(`nombre_cliente`, `apellido_cliente`, `telefono_cliente`, `direccion_instalacion`, `id_empleado_registro`, `codigo_pedido`) VALUES 
+('Jarod Manrrique', 'Espinal Sanchez', '98123819', 'Col. La Esperanza', '1', '8QW5H'),
+('Juan Antonio', 'Perez', '98123193', 'Col. Carrizal', '2', '8QW5H'),
+('Carlos Alberto', 'Morazan Lopez', '98216317', 'Col. La Esperanza', '3', '8QW5H'),
+('Xiomara Yamileth', 'Fernandez Ramirez', '98127732', 'Col. Camosa', '2', '8QW5H');
+
+/*PROVEEDORES*/
+INSERT INTO `proveedores`(`nombre_proveedor`, `descripcion_proveedor`, `telefono_proveedor`, `correo_electronico`, `direccion_proveedor`) VALUES 
+('Vidrios OIM', 'Proveedor principal de vidrios', '88342377', 'oimvidrios@gmail.com', 'Villas Del Sol'),
+('Canaletas Rodriguez', 'Proveedor de Lances', '22219232', 'Rodriguezcan@hotmail.es', 'Centro Comercial La Norteña'),
+('Mallas El Paraiso', 'Proveedor de mallas metalicas para puestas y ventanas', '98371245', 'Parai.Mall@yahoo.com', 'Plaza Miraflores');
+
+/*MATERIALES*/
+INSERT INTO `materiales`(`codigo_material`, `descripcion_material`, `tipo_material`, `precio_blanco_negro`, `precio_madera`, `precio_estandar`, `codigo_producto`) VALUES('VVC01', 'Contramarco pvc', 'Blanco y Madera', 318, 783.54, 0, 'VCP01'),
+('VVC02', 'Refuerzo de Hierro', 'Blanco y Madera', 190 , 190, 0, 'VCP01'),
+('VVC03', 'Hoja Para Ventana', 'Blanco y Madera', 195, 499.84, 0, 'VCP01'),
+('VVP04', 'Hoja Para Puerta', 'Blanco y Madera', 262.19, 648.45, 0, 'VCP01'),
+('VVC05', 'Batiente Upvc', 'Blanco y Madera', 53.25, 221.58, 0, 'VCP01'),
+('VVC06', 'Traslape Upvc', 'Blanco y Madera', 62.72, 182.37, 0, 'VCP01'),
+('VVC07', 'Cerradura Auto Trancable', 'Blanco y Madera',56, 56, 0, 'VCP01'),
+('VVC08', 'Manecilla Para Puerta', 'Blanco y Madera', 120.57, 120.57, 0, 'VCP01'),
+('VVC09', 'Cremona', 'Blanco y Madera', 113.55, 113.55, 0, 'VCP01'),
+('VVC10', 'Marco para Malla Upvc', 'Blanco y Madera', 136, 317.47, 0, 'VCP01'),
+('VVC11', 'Rompeviento', 'Blanco y Madera', 8, 8, 0, 'VCP01'),
+('VVC12', 'Rodo de Acero Doble', 'Blanco y Madera', 19 , 19, 0, 'VCP01'),
+('VVC13', 'Riel de Aluminio', 'Blanco y Madera', 77, 77, 0, 'VCP01'),
+('VVC14', 'Rodo de Malla Corrediza', 'Blanco y Madera', 6, 6, 0, 'VCP01'),
+('VVC15', 'Contramarco Fijo 80', 'Blanco y Madera',296.64, 641.70, 0, 'VCP01'),
+('VVC16', 'Contramarco Fijo 60', 'Blanco y Madera', 260.29, 672.29, 0, 'VCP01'),
+('VVC17', 'Vidrio 3.30*2.14', 'Transparente', 1585, 1585, 1585, 'VCP01'),
+('VVC18', 'Vinil', 'Blanco y Madera', 6.91, 6.91, 0, 'VCP01'),
+('VVC19', 'Felpa', 'Blanco y Madera', 11, 11, 0, 'VCP01'),
+('VVC20', 'Masilla', 'Blanco y Madera', 45, 45, 0, 'VCP01'),
+('VVC21', 'tela', 'Blanco y Madera', 11.58, 11.58, 0, 'VCP01'),
+('VAE02','Umbral C/M','Todos', 259.84, 349.98, 245.38, 'VAB01'),
+('VAE03','Cabezal Umbral y Hoja','Todos', 254.09, 329.38, 223.56, 'VAB01'),
+('VAE04','Jamba Hoja','Todos', 195.03, 262.21,179.94, 'VAB01'),
+('VAE05','Jamba llavin Economico','Todos',286.82,336.97, 247.56, 'VAB01'),
+('VAE06','Cuadricula','Todos', 0,0,0, 'VAB01'),
+('VAE07','Llavin de Impacto','Todos',50,50,50, 'VAB01'),
+('VAE08','Rodos P/Ventana','Todos',11,11,11, 'VAB01'),
+('VAE09','Fleje','Todos',77.15,77.15,77.15, 'VAB01'),
+('VAE10','Escuadras','Todos',11.50,11.50,11.50, 'VAB01'),
+('VAE11','Felpa','Todos',6.91,6.91,6.91, 'VAB01'),
+('VCP02','Umbral Contra Marco con Canal','Todos', 482.49, 556.88, 456.39, 'VPB01'),
+('VCP03','Jamba Contra Marco','Todos', 688.45, 807.85, 640.35, 'VPB01'),
+('VCP04','Umbral Hoja','Todos', 423.84, 528.31, 413.05, 'VPB01'),
+('VCP05','Jamba Chapa','Todos', 543.72, 629.61, 506.68, 'VPB01'),
+('VCP06','Jamba Traslape','todos', 510.29, 596.41, 483.35, 'VPB01'),
+('VCP07','Silicone','Todos', 70, 70, 70 , 'VPB01'),
+('VCP08','Llavines Para Puerta o Ventana','Todos', 55, 55, 55, 'VPB01'),
+('VCP09','Rodos Para Ventana','Todos', 30, 30, 30, 'VPB01'),
+('VCP10','Moldura P Maya Usa','Todos', 752, 752, 752, 'VPB01'),
+('VCP11','Rodo P Maya de Resorte','Todos', 27, 27, 27, 'VPB01'),
+('VCP12','Guias','Todos', 3, 3, 3, 'VPB01');
+
+/*PRESUPUESTO*/
+INSERT INTO `presupuestos`(`cod_presupuesto`, `precio_uni`, `presupuesto_externo`, `id_empleado`, `codigo_producto`) VALUES 
+('CBA21', '3110.40', '4000', '1', 'VPN03'),
+('A8A92', '1142.75', '2000', '3', 'VAB01'),
+('9AS9D', '1269.93', '2100', '2', 'VAM03')
+
+SET @autoid :=0;
+UPDATE proveedores SET id_proveedor = @autoid := (@autoid+1);
+ALTER TABLE proveedores AUTO_INCREMENT = 1;
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

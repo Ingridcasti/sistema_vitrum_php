@@ -1,0 +1,30 @@
+Generador Estilos
+http://css3generator.com/
+https://www.cssmatic.com
+
+VITRUMHN®
+TABLAS
+https://html-css-js.com/css/generator
+
+COLORES
+https://htmlcolorcodes.com/es/
+
+DEGRADADO
+http://www.colorzilla.com/gradient-editor/
+
+ICONOS
+https://www.flaticon.es/packs/house-things
+https://icomoon.io
+
+COLORES PREDETERMINADOS HEXADECIMALES
+https://brandcolors.net/
+
+FUENTES DE LETRAS
+https://es.wikipedia.org/wiki/Familias_de_tipos_de_letra_(HTML)
+
+TIPOS DE BORDES
+https://www.cssmatic.com/es/border-radius
+
+
+
+https://www.lawebdelprogramador.com/codigo/PHP/70-Guardar-y-mostrar-una-imagen-de-una-base-de-datos-MySQL.html
